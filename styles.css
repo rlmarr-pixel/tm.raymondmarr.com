@@ -714,3 +714,11 @@ textarea {
     animation: none !important;
   }
 }
+
+/* Utility classes (replace inline styles for CSP) */
+.u-badge-gap{margin:0.55rem 0}
+.u-align-end{align-self:end}
+.u-mb-08{margin-bottom:0.8rem}
+.subitem.grid-3a{grid-template-columns:1fr 1fr 1fr auto}
+.subitem.grid-12a{grid-template-columns:1fr 2fr auto}
+.subitem.grid-2a{grid-template-columns:1fr 1fr auto}
