@@ -685,7 +685,7 @@ function meetingCard(occ, options) {
     '<p class="eyebrow">' + eyebrow + '</p>' +
     '<h3>' + escapeHtml(occ.club.name) + '</h3>' +
     '<p class="meta">' + escapeHtml(formatLongDate(occ.date)) + ' · ' + escapeHtml(formatTimeRange(occ.start, occ.end)) + '</p>' +
-    '<div class="badge-row" style="margin:0.55rem 0">' + badges + '</div>' +
+    '<div class="badge-row u-badge-gap">' + badges + '</div>' +
     (occ.notes ? '<p>' + escapeHtml(occ.notes) + '</p>' : '') +
     '<div class="row-actions"><button type="button" class="btn" data-edit-meeting="' + escapeHtml(occ.id) + '">Edit details</button></div>' +
   '</article>';
@@ -708,7 +708,7 @@ function renderRoles() {
         '<div class="role-list">' + (rolesHtml || '<div class="empty">No roles yet. Add one below.</div>') + '</div>' +
         '<form data-form="add-role" class="form-grid two">' +
           '<label>New role name<input type="text" name="name" required maxlength="80" placeholder="For example, Speaker"></label>' +
-          '<div class="row-actions" style="align-self:end"><button type="submit" class="btn btn-primary">Add role</button></div>' +
+          '<div class="row-actions u-align-end"><button type="submit" class="btn btn-primary">Add role</button></div>' +
         '</form>' +
       '</div>' +
       '<div class="card stack">' +
@@ -1043,7 +1043,7 @@ function openMeetingEditor(id) {
     title: 'Edit meeting details',
     confirmLabel: 'Save details',
     render: function () {
-      return '<p class="meta" style="margin-bottom:0.8rem">' + escapeHtml(occ.club.name) + ' · ' + escapeHtml(formatLongDate(occ.date)) + ' · ' + escapeHtml(formatTimeRange(occ.start, occ.end)) + '</p>' +
+      return '<p class="meta u-mb-08">' + escapeHtml(occ.club.name) + ' · ' + escapeHtml(formatLongDate(occ.date)) + ' · ' + escapeHtml(formatTimeRange(occ.start, occ.end)) + '</p>' +
         '<form id="dialog-form" class="form-grid">' +
           '<label>Status<select name="status">' + optionList(MEETING_STATUSES, occ.status) + '</select></label>' +
           '<label>Role<select name="roleId">' + roleOptions + '</select></label>' +
@@ -1306,13 +1306,13 @@ function openEventEditor(eventItem) {
     for (let i = 0; i < list.length; i += 1) {
       const row = list[i];
       if (kind === 'run') {
-        html += '<div class="subitem" style="grid-template-columns:1fr 1fr 1fr auto">' +
+        html += '<div class="subitem grid-3a">' +
           '<input type="text" data-ev="run.time.' + escapeHtml(row.id) + '" value="' + escapeHtml(row.time) + '" placeholder="Time">' +
           '<input type="text" data-ev="run.item.' + escapeHtml(row.id) + '" value="' + escapeHtml(row.item) + '" placeholder="Item">' +
           '<input type="text" data-ev="run.who.' + escapeHtml(row.id) + '" value="' + escapeHtml(row.who) + '" placeholder="Who">' +
           '<button type="button" class="icon-btn" data-remove-row="run:' + escapeHtml(row.id) + '">Remove</button></div>';
       } else if (kind === 'intro') {
-        html += '<div class="subitem" style="grid-template-columns:1fr 2fr auto">' +
+        html += '<div class="subitem grid-12a">' +
           '<input type="text" data-ev="intro.person.' + escapeHtml(row.id) + '" value="' + escapeHtml(row.person) + '" placeholder="Name or role">' +
           '<input type="text" data-ev="intro.text.' + escapeHtml(row.id) + '" value="' + escapeHtml(row.text) + '" placeholder="Introduction">' +
           '<button type="button" class="icon-btn" data-remove-row="intro:' + escapeHtml(row.id) + '">Remove</button></div>';
@@ -1321,7 +1321,7 @@ function openEventEditor(eventItem) {
           '<input type="text" data-ev="setup.text.' + escapeHtml(row.id) + '" value="' + escapeHtml(row.text) + '" placeholder="Checklist item">' +
           '<button type="button" class="icon-btn" data-remove-row="setup:' + escapeHtml(row.id) + '">Remove</button></div>';
       } else {
-        html += '<div class="subitem" style="grid-template-columns:1fr 1fr auto">' +
+        html += '<div class="subitem grid-2a">' +
           '<input type="text" data-ev="role.role.' + escapeHtml(row.id) + '" value="' + escapeHtml(row.role) + '" placeholder="Role">' +
           '<input type="text" data-ev="role.person.' + escapeHtml(row.id) + '" value="' + escapeHtml(row.person) + '" placeholder="Assigned to">' +
           '<button type="button" class="icon-btn" data-remove-row="role:' + escapeHtml(row.id) + '">Remove</button></div>';
