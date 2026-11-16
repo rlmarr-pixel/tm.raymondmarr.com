@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="A Toastmasters workspace for meetings, speeches, practice, and feedback. All data stays in this browser.">
+  <meta name="theme-color" content="#7a1f2b">
+  <title>Toastmasters Workspace</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect fill='%237a1f2b' width='32' height='32' rx='6'/%3E%3Cpath fill='%23f4eee4' d='M8 22h16v2H8zm3-9.5C11 9 13.2 6.5 16 6.5S21 9 21 12.5V20H11z'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <div>
+          <p class="brand-kicker">Club workspace</p>
+          <h1>Toastmasters Workspace</h1>
+        </div>
+      </div>
+      <p class="privacy-note">All data stays in this browser’s local storage until you export it.</p>
+      <div class="data-actions">
+        <button type="button" class="btn" id="btn-export">Export</button>
+        <button type="button" class="btn" id="btn-import">Import</button>
+        <button type="button" class="btn btn-danger-ghost" id="btn-reset">Reset</button>
+        <input type="file" id="import-file" accept="application/json,.json" hidden>
+      </div>
+    </div>
+  </header>
+
+  <nav class="tabs" aria-label="Workspace sections">
+    <div class="tabs-inner" role="tablist">
+      <button type="button" role="tab" id="tab-meetings" aria-controls="panel-meetings" aria-selected="true" data-tab="meetings">Meetings</button>
+      <button type="button" role="tab" id="tab-roles" aria-controls="panel-roles" aria-selected="false" data-tab="roles" tabindex="-1">Roles</button>
+      <button type="button" role="tab" id="tab-speeches" aria-controls="panel-speeches" aria-selected="false" data-tab="speeches" tabindex="-1">Speeches</button>
+      <button type="button" role="tab" id="tab-practice" aria-controls="panel-practice" aria-selected="false" data-tab="practice" tabindex="-1">Practice</button>
+      <button type="button" role="tab" id="tab-feedback" aria-controls="panel-feedback" aria-selected="false" data-tab="feedback" tabindex="-1">Feedback</button>
+      <button type="button" role="tab" id="tab-events" aria-controls="panel-events" aria-selected="false" data-tab="events" tabindex="-1">Events</button>
+    </div>
+  </nav>
+
+  <main id="main">
+    <section id="panel-meetings" class="panel" role="tabpanel" aria-labelledby="tab-meetings"></section>
+    <section id="panel-roles" class="panel" role="tabpanel" aria-labelledby="tab-roles" hidden></section>
+    <section id="panel-speeches" class="panel" role="tabpanel" aria-labelledby="tab-speeches" hidden></section>
+    <section id="panel-practice" class="panel" role="tabpanel" aria-labelledby="tab-practice" hidden></section>
+    <section id="panel-feedback" class="panel" role="tabpanel" aria-labelledby="tab-feedback" hidden></section>
+    <section id="panel-events" class="panel" role="tabpanel" aria-labelledby="tab-events" hidden></section>
+  </main>
+
+  <div id="dialog-root"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
